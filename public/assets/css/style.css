@@ -223,6 +223,30 @@ a:hover { text-decoration: underline; }
     margin: 20px 0 28px;
 }
 
+/* ---------- admin table ---------- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.admin-table th, .admin-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+.admin-table th {
+    color: var(--fg-dim);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.admin-table tr:last-child td { border-bottom: none; }
+
 /* ---------- footer ---------- */
 .site-footer {
     border-top: 1px solid var(--border);
