@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copy this file to config/database.php and fill in your real credentials.
+ * config/database.php is git-ignored on purpose — never commit real secrets.
+ */
+
+return [
+    'host'    => '127.0.0.1',
+    'port'    => 3306,
+    'dbname'  => 'cinelens',
+    'user'    => 'root',
+    'pass'    => '',
+    'charset' => 'utf8mb4',
+];
