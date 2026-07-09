@@ -216,6 +216,13 @@ a:hover { text-decoration: underline; }
 .star-btn.filled { color: var(--accent); }
 .star-btn:disabled { cursor: wait; opacity: 0.6; }
 
+/* ---------- algorithm toggle ---------- */
+.algo-toggle {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0 28px;
+}
+
 /* ---------- footer ---------- */
 .site-footer {
     border-top: 1px solid var(--border);
