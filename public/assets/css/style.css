@@ -1,0 +1,181 @@
+/* =====================================================================
+   CineLens — design tokens
+   Palette: near-black indigo screening room + warm projector amber.
+   Display face: Fraunces (characterful serif, used with restraint).
+   Body/UI face: Inter.
+   Signature element: sprocket-hole rule (film-reel perforation),
+   used once at the hero — not repeated as decoration everywhere.
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg:        #12141c;
+    --bg-alt:    #1b1e2a;
+    --bg-card:   #1f2330;
+    --fg:        #eae7dc;
+    --fg-dim:    #9a9db0;
+    --border:    #2a2e3d;
+    --accent:    #e8a33d;   /* projector amber */
+    --accent-ink:#12141c;
+    --accent-2:  #c2452c;   /* warm red — danger / secondary highlight */
+    --good:      #7fae6a;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --radius: 8px;
+    --shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5em;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- sprocket rule — the one signature flourish ---------- */
+.sprocket-rule {
+    height: 18px;
+    background-image: radial-gradient(circle, var(--border) 3px, transparent 3.5px);
+    background-size: 22px 18px;
+    background-repeat: repeat-x;
+    background-position: left center;
+    opacity: 0.8;
+    margin: 0 0 32px;
+}
+
+/* ---------- nav ---------- */
+.nav {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
+}
+.nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+.nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--fg);
+}
+.nav-brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-links a { color: var(--fg-dim); font-weight: 500; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--fg); text-decoration: none; }
+.nav-links a.active { color: var(--accent); }
+.nav-user { color: var(--fg-dim); font-size: 0.9rem; }
+
+/* ---------- buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: #f0b258; text-decoration: none; }
+.btn-outline { background: transparent; border-color: var(--border); color: var(--fg); }
+.btn-outline:hover { border-color: var(--accent); text-decoration: none; }
+.btn-danger { background: transparent; border-color: var(--accent-2); color: var(--accent-2); }
+.btn-danger:hover { background: var(--accent-2); color: var(--fg); text-decoration: none; }
+.btn-sm { padding: 6px 12px; font-size: 0.85rem; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- forms ---------- */
+.form-card {
+    max-width: 420px;
+    margin: 64px auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+}
+.field { margin-bottom: 18px; }
+.field label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--fg-dim);
+    margin-bottom: 6px;
+}
+.field input, .field select, .field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+.form-footer {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: var(--fg-dim);
+    text-align: center;
+}
+
+.alert {
+    padding: 12px 14px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+}
+.alert-error {
+    background: rgba(194, 69, 44, 0.15);
+    border: 1px solid var(--accent-2);
+    color: #f2a794;
+}
+.alert-success {
+    background: rgba(127, 174, 106, 0.15);
+    border: 1px solid var(--good);
+    color: #b7dba5;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+    border-top: 1px solid var(--border);
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 28px 0;
+    margin-top: 60px;
+}
