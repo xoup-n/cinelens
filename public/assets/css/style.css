@@ -200,6 +200,22 @@ a:hover { text-decoration: underline; }
 }
 .movie-card-meta { font-size: 0.85rem; color: var(--fg-dim); }
 
+/* ---------- rating widget ---------- */
+.star-row { display: flex; gap: 4px; }
+.star-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--border);
+    cursor: pointer;
+    padding: 2px;
+    transition: color 0.1s ease, transform 0.1s ease;
+}
+.star-btn:hover { transform: scale(1.1); }
+.star-btn.filled { color: var(--accent); }
+.star-btn:disabled { cursor: wait; opacity: 0.6; }
+
 /* ---------- footer ---------- */
 .site-footer {
     border-top: 1px solid var(--border);

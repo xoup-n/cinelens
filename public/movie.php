@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../src/Auth.php';
 require_once __DIR__ . '/../src/Movie.php';
+require_once __DIR__ . '/../src/Rating.php';
 
 Auth::start();
 $currentUser = Auth::currentUser();
@@ -37,13 +38,22 @@ require __DIR__ . '/partials/header.php';
         <?php endif; ?>
     </div>
 
-    <div id="rating-widget" data-movie-id="<?= (int) $movie['id'] ?>">
-        <?php if ($currentUser === null): ?>
-            <p style="color:var(--fg-dim)"><a href="/login.php">Увійдіть</a>, щоб оцінити цей фільм.</p>
-        <?php else: ?>
-            <p style="color:var(--fg-dim); font-size:0.9rem;">Оновлення рейтингу буде додано в наступній фічі.</p>
-        <?php endif; ?>
-    </div>
+    <?php if ($currentUser === null): ?>
+        <p style="color:var(--fg-dim)"><a href="/login.php">Увійдіть</a>, щоб оцінити цей фільм.</p>
+    <?php else: ?>
+        <?php $myRating = Rating::userRatingForMovie((int) $currentUser['id'], (int) $movie['id']); ?>
+        <div id="rating-widget" data-movie-id="<?= (int) $movie['id'] ?>" data-current-rating="<?= (int) ($myRating ?? 0) ?>">
+            <div class="star-row">
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                    <button type="button" class="star-btn <?= $myRating !== null && $i <= $myRating ? 'filled' : '' ?>" data-value="<?= $i ?>" aria-label="Оцінити <?= $i ?> з 5">★</button>
+                <?php endfor; ?>
+            </div>
+            <p class="rating-status" style="color:var(--fg-dim); font-size:0.85rem; margin-top:6px;">
+                <?= $myRating !== null ? 'Ваша оцінка: ' . $myRating . '/5. Натисніть, щоб змінити.' : 'Оцініть цей фільм.' ?>
+            </p>
+        </div>
+        <script src="/assets/js/rating.js" defer></script>
+    <?php endif; ?>
 
     <p style="margin-top:32px;"><a href="/catalog.php">&larr; Назад до каталогу</a></p>
 </div>
