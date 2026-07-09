@@ -170,6 +170,36 @@ a:hover { text-decoration: underline; }
     color: #b7dba5;
 }
 
+/* ---------- catalog ---------- */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+    padding-bottom: 48px;
+}
+.movie-card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    color: var(--fg);
+    transition: border-color 0.15s ease, transform 0.1s ease;
+}
+.movie-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.movie-card h3 { margin: 6px 0 8px; font-size: 1.1rem; }
+.movie-card-genre {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+}
+.movie-card-meta { font-size: 0.85rem; color: var(--fg-dim); }
+
 /* ---------- footer ---------- */
 .site-footer {
     border-top: 1px solid var(--border);
