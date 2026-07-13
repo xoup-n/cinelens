@@ -165,9 +165,9 @@ final class RecommendationEngine
         $stmt = $db->prepare(
             "SELECT movie_id_a, movie_id_b, {$column} AS similarity, co_raters
              FROM item_similarity
-             WHERE movie_id_a = :id OR movie_id_b = :id"
+             WHERE movie_id_a = :id_a OR movie_id_b = :id_b"
         );
-        $stmt->execute(['id' => $movieId]);
+        $stmt->execute(['id_a' => $movieId, 'id_b' => $movieId]);
 
         $neighbors = [];
         foreach ($stmt->fetchAll() as $row) {
