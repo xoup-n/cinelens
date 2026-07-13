@@ -23,7 +23,7 @@ INSERT INTO movies (title, genre, release_year, description, poster_url) VALUES
 ('The Long Thaw',       'Drama',    2019, 'A glacier researcher confronts old grief while the ice she studies melts.', NULL),
 ('Midnight Ledger',     'Thriller', 2017, 'An accountant discovers her firm has been laundering more than money.', NULL),
 ('Feather & Frame',     'Animation',2016, 'An orphaned bird and an old painter build an unlikely friendship.', NULL),
-('Second Wind',         'Drama',    2022, 'A retired sprinter coaches a rival's daughter for one last shot at gold.', NULL),
+('Second Wind',         'Drama',    2022, 'A retired sprinter coaches a rival''s daughter for one last shot at gold.', NULL),
 ('Static and Stars',    'Sci-Fi',   2023, 'Two rival colonies on Mars must share one failing life-support system.', NULL),
 ('Kitchen Confidential Lies','Comedy',2014,'A chef fakes a five-star review to save his restaurant, then the reviewer shows up.', NULL);
 
